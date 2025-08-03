@@ -1,0 +1,82 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    background: #f8f8f8;
+    color: #333;
+}
+header {
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    padding: 24px 0 16px 0;
+    text-align: center;
+}
+.logo img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+h1 {
+    font-size: 2.5rem;
+    margin: 0 0 12px 0;
+    color: #d35400;
+    letter-spacing: 2px;
+}
+nav {
+    margin: 16px 0;
+}
+.order-btn {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 12px 24px;
+    border-radius: 24px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #fff;
+    transition: background 0.2s;
+}
+.order-btn.zomato { background: #e23744; }
+.order-btn.swiggy { background: #fc8019; }
+.order-btn.google { background: #4285f4; }
+.order-btn:hover { opacity: 0.85; }
+main {
+    max-width: 900px;
+    margin: 32px auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    padding: 32px;
+}
+.instagram-section {
+    text-align: center;
+}
+.insta-slideshow {
+    width: 100%;
+    max-width: 600px;
+    margin: 24px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    background: #fafafa;
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.insta-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: #d35400;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+footer {
+    text-align: center;
+    padding: 24px 0;
+    background: #fff;
+    color: #888;
+    font-size: 1rem;
+    margin-top: 48px;
+    border-top: 1px solid #eee;
+}
