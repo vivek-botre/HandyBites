@@ -84,10 +84,39 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     border: none;
     outline: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.order-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    transition: left 1.3s ease-in-out;
+    opacity: 0;
+}
+
+.order-btn.shimmer::before {
+    left: 100%;
+    opacity: 1;
 }
 
 .order-btn.zomato {
     background: linear-gradient(90deg, #b71c1c 60%, #e53935 100%);
+}
+
+.order-btn.zomato .svg-icon {
+    width: 32px;
+    height: 32px;
 }
 
 .order-btn.swiggy {
@@ -120,31 +149,6 @@ main {
     padding-top: 1rem;
 }
 
-.instagram-section {
-    background: linear-gradient(135deg, #232323 60%, #2d2d2d 100%);
-    border-radius: 1rem;
-    padding: 1.2rem 1.5rem;
-    margin: 0.4rem 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    width: 100%;
-    max-width: 500px;
-    text-align: center;
-    color: #fff;
-}
-
-.insta-title {
-    font-size: 1.1rem;
-    color: #fff;
-    margin-bottom: 0.8rem;
-    font-weight: 600;
-}
-
-.insta-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .insta-link {
     display: inline-flex;
     align-items: center;
@@ -154,9 +158,34 @@ main {
     text-decoration: none;
     font-weight: 500;
     background: linear-gradient(90deg, #fdc468 0%, #fa7e1e 40%, #d62976 70%, #962fbf 100%);
-    padding: 0.4rem 1rem;
+    padding: 0.8rem 1.5rem;
     border-radius: 1rem;
     box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    margin-bottom: 0.6rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.insta-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    transition: left 1.3s ease-in-out;
+    opacity: 0;
+}
+
+.insta-link.shimmer::before {
+    left: 100%;
+    opacity: 1;
 }
 
 .google-nav {
@@ -218,21 +247,10 @@ footer {
         justify-content: center;
     }
     
-    .instagram-section {
-        padding: 1rem 1rem;
-        margin: 0.4rem 0;
-        max-width: 95vw;
-        border-radius: 0.8rem;
-    }
-    
-    .insta-title {
-        font-size: 1rem;
-        margin-bottom: 0.6rem;
-    }
-    
     .insta-link {
         font-size: 0.9rem;
-        padding: 0.35rem 0.8rem;
+        padding: 0.6rem 1.2rem;
+        margin-bottom: 0.4rem;
     }
     
     .google-nav {
@@ -268,12 +286,9 @@ footer {
         width: 180px;
     }
     
-    .insta-title {
-        font-size: 0.95rem;
-    }
-    
     .insta-link {
         font-size: 0.85rem;
+        padding: 0.5rem 1rem;
     }
 }
 
@@ -296,17 +311,9 @@ footer {
         width: 160px;
     }
     
-    .instagram-section {
-        padding: 0.6rem 0.8rem;
-    }
-    
-    .insta-title {
-        font-size: 0.9rem;
-    }
-    
     .insta-link {
         font-size: 0.8rem;
-        padding: 0.3rem 0.7rem;
+        padding: 0.45rem 0.9rem;
     }
 }
 
