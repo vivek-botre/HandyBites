@@ -154,6 +154,14 @@ main {
     padding-top: 1rem;
 }
 
+.insta-text {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin: 0 0 0.5rem 0;
+    text-align: center;
+    font-weight: 400;
+}
+
 .insta-link {
     display: inline-flex;
     align-items: center;
@@ -255,6 +263,11 @@ footer {
         justify-content: center;
     }
     
+    .insta-text {
+        font-size: 0.8rem;
+        margin: 0 0 0.4rem 0;
+    }
+    
     .insta-link {
         font-size: 0.9rem;
         padding: 0.6rem 1.2rem;
@@ -295,6 +308,11 @@ footer {
         min-width: 140px;
     }
     
+    .insta-text {
+        font-size: 0.75rem;
+        margin: 0 0 0.3rem 0;
+    }
+    
     .insta-link {
         font-size: 0.85rem;
         padding: 0.5rem 1rem;
@@ -319,6 +337,11 @@ footer {
         padding: 0.4rem 0.8rem;
         width: auto;
         min-width: 120px;
+    }
+    
+    .insta-text {
+        font-size: 0.7rem;
+        margin: 0 0 0.25rem 0;
     }
     
     .insta-link {
