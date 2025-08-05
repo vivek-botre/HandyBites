@@ -62,4 +62,85 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Start shimmer sequence after a short delay
     setTimeout(startShimmerSequence, 500);
+
+    // Dynamic slideshow functionality
+    function initSlideshow() {
+        const slideshowContainer = document.getElementById('slideshow');
+        if (!slideshowContainer) return;
+
+        // List of menu images - add or remove images here and they'll automatically be included
+        const menuImages = [
+            '5O2A1219@2x.jpg',
+            '5O2A1226@2x.jpg',
+            '5O2A1247@2x.jpg',
+            '5O2A1259@2x.jpg',
+            '5O2A1274@2x.jpg'
+            // Add more images here as needed:
+            // '5O2A1275@2x.jpg',
+            // '5O2A1276@2x.jpg',
+        ];
+
+        // Function to create slide elements
+        function createSlides() {
+            slideshowContainer.innerHTML = ''; // Clear existing slides
+            
+            menuImages.forEach((imageName, index) => {
+                const slide = document.createElement('div');
+                slide.className = 'slide' + (index === 0 ? ' active' : '');
+                
+                const img = document.createElement('img');
+                img.src = `assets/MenuItems/${imageName}`;
+                img.alt = `Menu Item ${index + 1}`;
+                img.onerror = function() {
+                    // If image fails to load, remove this slide
+                    console.warn(`Image not found: ${imageName}`);
+                    slide.remove();
+                };
+                
+                slide.appendChild(img);
+                slideshowContainer.appendChild(slide);
+            });
+        }
+
+        // Create slides from the image list
+        createSlides();
+
+        // Wait a moment for images to load, then start slideshow
+        setTimeout(() => {
+            const slides = slideshowContainer.querySelectorAll('.slide');
+            if (slides.length === 0) {
+                console.warn('No valid menu images found');
+                return;
+            }
+
+            let currentSlide = 0;
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.remove('active', 'prev');
+                    if (i === index) {
+                        slide.classList.add('active');
+                    } else if (i === (index - 1 + slides.length) % slides.length) {
+                        slide.classList.add('prev');
+                    }
+                });
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            // Only start auto-advance if we have multiple slides
+            if (slides.length > 1) {
+                setInterval(nextSlide, 3000);
+            }
+
+            // Initialize first slide
+            showSlide(0);
+        }, 500);
+    }
+
+    // Start slideshow
+    initSlideshow();
 });
