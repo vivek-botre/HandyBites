@@ -360,6 +360,7 @@ footer {
     
     .slide img {
         border-radius: 0.6rem;
+        object-position: center top;
     }
     
     .slide::after {
@@ -400,7 +401,11 @@ footer {
     }
     
     .slideshow {
-        height: 180px;
+        height: 200px;
+    }
+    
+    .slide img {
+        object-position: center top;
     }
     
     .slide::after {
@@ -442,7 +447,11 @@ footer {
     }
     
     .slideshow {
-        height: 160px;
+        height: 180px;
+    }
+    
+    .slide img {
+        object-position: center top;
     }
     
     .slide::after {
