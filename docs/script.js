@@ -1,26 +1,31 @@
-// Instagram slideshow logic
-// Replace these URLs with actual Instagram post image URLs for live use
-const posts = [
-    'https://via.placeholder.com/600x320?text=Instagram+Post+1',
-    'https://via.placeholder.com/600x320?text=Instagram+Post+2',
-    'https://via.placeholder.com/600x320?text=Instagram+Post+3'
-];
+// Lightweight script for Handy Bites Cafe
+document.addEventListener('DOMContentLoaded', function() {
+    // Add smooth scrolling for any potential internal links
+    const links = document.querySelectorAll('a[href^="#"]');
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
 
-let current = 0;
-const slideshow = document.getElementById('insta-slideshow');
+    // Add loading optimization for images
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        img.style.transition = 'opacity 0.3s ease';
+        img.addEventListener('load', function() {
+            this.style.opacity = '1';
+        });
+    });
 
-function showPost(idx) {
-    slideshow.innerHTML = `<img src="${posts[idx]}" alt="Instagram Post" style="width:100%;height:auto;">`;
-}
-
-function nextPost() {
-    current = (current + 1) % posts.length;
-    showPost(current);
-}
-
-function startSlideshow() {
-    showPost(current);
-    setInterval(nextPost, 3000);
-}
-
-document.addEventListener('DOMContentLoaded', startSlideshow);
+    // Ensure mobile viewport optimization
+    if ('ontouchstart' in window) {
+        document.body.classList.add('touch-device');
+    }
+});
