@@ -91,11 +91,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 const img = document.createElement('img');
                 img.src = `assets/MenuItems/${imageName}`;
                 img.alt = `Menu Item ${index + 1}`;
+                img.draggable = false;
                 img.onerror = function() {
                     // If image fails to load, remove this slide
                     console.warn(`Image not found: ${imageName}`);
                     slide.remove();
                 };
+                
+                // Add protection event listeners
+                img.addEventListener('contextmenu', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+                
+                img.addEventListener('dragstart', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+                
+                img.addEventListener('selectstart', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
                 
                 slide.appendChild(img);
                 slideshowContainer.appendChild(slide);
@@ -143,4 +160,46 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Start slideshow
     initSlideshow();
+
+    // Add global image protection
+    function addImageProtection() {
+        // Disable right-click on slideshow
+        const slideshow = document.querySelector('.slideshow-container');
+        if (slideshow) {
+            slideshow.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            
+            slideshow.addEventListener('dragstart', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            
+            slideshow.addEventListener('selectstart', function(e) {
+                e.preventDefault();
+                return false;
+            });
+        }
+
+        // Disable common keyboard shortcuts for saving images
+        document.addEventListener('keydown', function(e) {
+            // Disable Ctrl+S (Save), Ctrl+A (Select All), Ctrl+P (Print), F12 (DevTools)
+            if ((e.ctrlKey && (e.key === 's' || e.key === 'a' || e.key === 'p')) || e.key === 'F12') {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Disable print screen (limited effectiveness)
+        document.addEventListener('keyup', function(e) {
+            if (e.key === 'PrintScreen') {
+                navigator.clipboard.writeText('');
+                console.log('Screenshot attempt detected');
+            }
+        });
+    }
+
+    // Initialize protection
+    addImageProtection();
 });
