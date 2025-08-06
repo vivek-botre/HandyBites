@@ -175,6 +175,10 @@ body {
     background: linear-gradient(135deg, #4285f4 0%, #1a73e8 100%);
 }
 
+.order-btn.google .svg-icon {
+    margin-right: 0.5rem;
+}
+
 .order-btn:hover {
     transform: translateY(-3px) scale(1.03);
     box-shadow: 0 8px 25px rgba(0,0,0,0.2);
