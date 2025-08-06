@@ -1,3 +1,6 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
 /* Global styles */
 html, body {
     height: 100%;
@@ -7,9 +10,10 @@ html, body {
 }
 
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: #181818;
-    color: #f5f5f5;
+    font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    background: #eceff1;
+    color: #2c3e50;
+    position: relative;
 }
 
 /* Container to ensure single viewport height */
@@ -18,8 +22,14 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 0.5rem;
+    padding: 1rem;
     box-sizing: border-box;
+    background: #fafafa;
+    border: 1px solid #e0e0e0;
+    margin: 0 auto;
+    max-width: 1200px;
+    border-radius: 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 /* Header styles */
@@ -48,44 +58,86 @@ body {
 
 .site-title {
     font-size: 1.8rem;
-    color: #ff8c2b;
+    color: #2c3e50;
     margin: 0;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
+    text-shadow: none;
+    font-family: 'Poppins', 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .slogan h2 {
     font-size: 1rem;
     margin: 0.4rem 0 0.8rem 0;
-    color: #ccc;
+    color: #666666;
     font-weight: 400;
+    letter-spacing: 0.3px;
+    font-family: 'Poppins', 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 /* Order navigation */
 .order-nav {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
     margin-bottom: 0.8rem;
     flex-wrap: wrap;
+}
+
+.order-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.order-logo {
+    width: 60px;
+    height: 40px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2));
+}
+
+/* Specific styling for Zomato logo - horizontal layout needs more width */
+.order-item:first-child .order-logo {
+    width: 80px;
+    height: 45px;
+}
+
+.order-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+/* Closer spacing for Zomato logo specifically */
+.order-item:first-child {
+    gap: 0.2rem;
 }
 
 .order-btn {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.6rem 1.2rem;
-    border-radius: 1.5rem;
-    font-size: 0.9rem;
-    font-weight: 500;
+    justify-content: center;
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
     text-decoration: none;
     color: #fff;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.12);
     border: none;
     outline: none;
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(10px);
+    will-change: transform, box-shadow;
+    text-align: center;
+    min-width: 160px;
+    font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: 0.3px;
 }
 
 .order-btn::before {
@@ -98,10 +150,10 @@ body {
     background: linear-gradient(
         90deg,
         transparent,
-        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.3),
         transparent
     );
-    transition: left 1.3s ease-in-out;
+    transition: left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     opacity: 0;
 }
 
@@ -111,31 +163,26 @@ body {
 }
 
 .order-btn.zomato {
-    background: linear-gradient(90deg, #b71c1c 60%, #e53935 100%);
-}
-
-.order-btn.zomato .svg-icon {
-    width: 32px;
-    height: 32px;
+    background: linear-gradient(135deg, #e23744 0%, #cb202d 100%);
 }
 
 .order-btn.swiggy {
-    background: linear-gradient(90deg, #ff8c2b 60%, #ffb74d 100%);
-    color: #181818;
-}
-
-.order-btn.swiggy .svg-icon {
-    width: 32px;
-    height: 32px;
+    background: linear-gradient(135deg, #fc8019 0%, #e8710a 100%);
+    color: #fff;
 }
 
 .order-btn.google {
-    background: linear-gradient(90deg, #1565c0 60%, #42a5f5 100%);
+    background: linear-gradient(135deg, #4285f4 0%, #1a73e8 100%);
 }
 
 .order-btn:hover {
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.order-btn:active {
+    transform: translateY(-1px) scale(1.01);
+    transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .svg-icon {
@@ -156,7 +203,7 @@ main {
 
 .insta-text {
     font-size: 0.9rem;
-    color: #ccc;
+    color: #666666;
     margin: 0 0 0.5rem 0;
     text-align: center;
     font-weight: 400;
@@ -169,14 +216,19 @@ main {
     font-size: 1rem;
     color: #fff;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     background: linear-gradient(90deg, #fdc468 0%, #fa7e1e 40%, #d62976 70%, #962fbf 100%);
     padding: 0.8rem 1.5rem;
-    border-radius: 1rem;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.12);
     margin-bottom: 0.6rem;
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform, box-shadow;
+    font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: 0.3px;
 }
 
 .insta-link::before {
@@ -189,10 +241,10 @@ main {
     background: linear-gradient(
         90deg,
         transparent,
-        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.3),
         transparent
     );
-    transition: left 1.3s ease-in-out;
+    transition: left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     opacity: 0;
 }
 
@@ -201,24 +253,35 @@ main {
     opacity: 1;
 }
 
+.insta-link:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.insta-link:active {
+    transform: translateY(-1px) scale(1.01);
+    transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
 .google-nav {
     margin-top: 0.6rem;
 }
 
 /* Slideshow */
 .slideshow-container {
-    margin-top: 0.8rem;
+    margin-top: 1rem;
     width: 100%;
-    max-width: 400px;
+    max-width: 450px;
 }
 
 .slideshow {
     position: relative;
     width: 100%;
-    height: 250px;
+    height: 280px;
     overflow: hidden;
-    border-radius: 0.8rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    background: #fafafa;
 }
 
 .slide {
@@ -227,7 +290,8 @@ main {
     height: 100%;
     opacity: 0;
     transform: translateX(100%);
-    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .slide.active {
@@ -243,7 +307,8 @@ main {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 0.8rem;
+    object-position: center center;
+    border-radius: 16px;
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -265,21 +330,21 @@ main {
     left: 50%;
     transform: translate(-50%, -50%) rotate(-15deg);
     font-size: 2rem;
-    font-weight: bold;
-    color: rgba(255, 255, 255, 0.4);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.6);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
     pointer-events: none;
     z-index: 2;
-    letter-spacing: 2px;
-    font-family: 'Segoe UI', Arial, sans-serif;
+    letter-spacing: 1px;
+    font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
     white-space: nowrap;
 }
 
 /* Footer */
 footer {
     text-align: center;
-    padding: 0.8rem 0 0.5rem 0;
-    color: #aaa;
+    padding: 1rem 0 0.5rem 0;
+    color: #888888;
     font-size: 0.85rem;
     flex-shrink: 0;
 }
@@ -287,20 +352,116 @@ footer {
 /* Mobile responsiveness */
 @media (max-width: 768px) {
     .container {
-        padding: 0.3rem;
+        padding: 0.8rem;
         height: 100vh;
     }
     
     main {
-        padding-top: 0.6rem;
+        padding-top: 1rem;
     }
     
     .main-header {
-        padding: 0.6rem 0 0.4rem 0;
+        padding: 1rem 0 0.8rem 0;
     }
     
     .header-logo {
+        margin-bottom: 1rem;
+    }
+    
+    .header-logo-img {
+        width: 90px;
+    }
+    
+    .site-title {
+        font-size: 1.6rem;
+    }
+    
+    .slogan h2 {
+        font-size: 0.95rem;
+        margin: 0.5rem 0 1rem 0;
+    }
+    
+    .order-nav {
+        gap: 1.5rem;
+        margin-bottom: 1rem;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .order-item {
+        gap: 0.3rem;
+    }
+    
+    .order-item:first-child {
+        gap: 0.15rem;
+    }
+    
+    .order-logo {
+        width: 50px;
+        height: 32px;
+    }
+    
+    .order-item:first-child .order-logo {
+        width: 65px;
+        height: 36px;
+    }
+    
+    .order-btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.8rem;
+        width: auto;
+        min-width: 140px;
+        justify-content: center;
+    }
+    
+    .insta-text {
+        font-size: 0.85rem;
+        margin: 0 0 0.6rem 0;
+    }
+    
+    .insta-link {
+        font-size: 0.95rem;
+        padding: 0.7rem 1.3rem;
         margin-bottom: 0.6rem;
+    }
+    
+    .google-nav {
+        margin-top: 0.6rem;
+    }
+    
+    .slideshow-container {
+        margin-top: 1rem;
+        max-width: 95vw;
+    }
+    
+    .slideshow {
+        height: 240px;
+        border-radius: 12px;
+    }
+    
+    .slide img {
+        border-radius: 12px;
+        object-position: center center;
+    }
+    
+    .slide::after {
+        font-size: 1.4rem;
+        letter-spacing: 1px;
+        color: rgba(255, 255, 255, 0.6);
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+    }
+    
+    footer {
+        padding: 1rem 0 0.5rem 0;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0.6rem;
     }
     
     .header-logo-img {
@@ -308,167 +469,109 @@ footer {
     }
     
     .site-title {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
     
     .slogan h2 {
-        font-size: 0.9rem;
-        margin: 0.3rem 0 0.6rem 0;
-    }
-    
-    .order-nav {
-        gap: 0.8rem;
-        margin-bottom: 0.6rem;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    
-    .order-btn {
-        padding: 0.5rem 1rem;
         font-size: 0.85rem;
-        width: auto;
-        min-width: 160px;
-        justify-content: center;
     }
     
-    .insta-text {
-        font-size: 0.8rem;
-        margin: 0 0 0.4rem 0;
+    .order-logo {
+        width: 45px;
+        height: 30px;
     }
     
-    .insta-link {
-        font-size: 0.9rem;
-        padding: 0.6rem 1.2rem;
-        margin-bottom: 0.4rem;
-    }
-    
-    .google-nav {
-        margin-top: 0.4rem;
-    }
-    
-    .slideshow-container {
-        margin-top: 0.6rem;
-        max-width: 95vw;
-    }
-    
-    .slideshow {
-        height: 200px;
-        border-radius: 0.6rem;
-    }
-    
-    .slide img {
-        border-radius: 0.6rem;
-        object-position: center top;
-    }
-    
-    .slide::after {
-        font-size: 1.6rem;
-        letter-spacing: 1px;
-        color: rgba(255, 255, 255, 0.4);
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    }
-    
-    footer {
-        padding: 0.6rem 0 0.3rem 0;
-        font-size: 0.8rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 0.2rem;
-    }
-    
-    .header-logo-img {
-        width: 70px;
-    }
-    
-    .site-title {
-        font-size: 1.3rem;
-    }
-    
-    .slogan h2 {
-        font-size: 0.8rem;
+    .order-item:first-child .order-logo {
+        width: 58px;
+        height: 32px;
     }
     
     .order-btn {
-        font-size: 0.8rem;
-        padding: 0.45rem 0.9rem;
-        width: auto;
-        min-width: 140px;
-    }
-    
-    .slideshow {
-        height: 200px;
-    }
-    
-    .slide img {
-        object-position: center top;
-    }
-    
-    .slide::after {
-        font-size: 1.3rem;
-        letter-spacing: 0.5px;
-        color: rgba(255, 255, 255, 0.4);
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    }
-    
-    .insta-text {
         font-size: 0.75rem;
-        margin: 0 0 0.3rem 0;
+        padding: 0.6rem 1rem;
+        width: auto;
+        min-width: 130px;
+    }
+    
+    .slideshow {
+        height: 220px;
+    }
+    
+    .slide img {
+        object-position: center center;
+    }
+    
+    .slide::after {
+        font-size: 1.2rem;
+        letter-spacing: 0.5px;
+        color: rgba(255, 255, 255, 0.6);
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    }
+    
+    .insta-text {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem 0;
     }
     
     .insta-link {
-        font-size: 0.85rem;
-        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        padding: 0.6rem 1.1rem;
     }
 }
 
 @media (max-width: 320px) {
     .header-logo-img {
-        width: 60px;
+        width: 70px;
     }
     
     .site-title {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
     
     .slogan h2 {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
+    }
+    
+    .order-logo {
+        width: 40px;
+        height: 26px;
+    }
+    
+    .order-item:first-child .order-logo {
+        width: 52px;
+        height: 28px;
     }
     
     .order-btn {
-        font-size: 0.75rem;
-        padding: 0.4rem 0.8rem;
+        font-size: 0.7rem;
+        padding: 0.6rem 0.9rem;
         width: auto;
         min-width: 120px;
     }
     
     .slideshow {
-        height: 180px;
+        height: 200px;
     }
     
     .slide img {
-        object-position: center top;
+        object-position: center center;
     }
     
     .slide::after {
         font-size: 1rem;
         letter-spacing: 0px;
-        color: rgba(255, 255, 255, 0.4);
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        color: rgba(255, 255, 255, 0.6);
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
     }
     
     .insta-text {
-        font-size: 0.7rem;
-        margin: 0 0 0.25rem 0;
+        font-size: 0.75rem;
+        margin: 0 0 0.4rem 0;
     }
     
     .insta-link {
-        font-size: 0.8rem;
-        padding: 0.45rem 0.9rem;
+        font-size: 0.85rem;
+        padding: 0.55rem 1rem;
     }
 }
 

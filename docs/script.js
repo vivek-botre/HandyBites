@@ -46,14 +46,16 @@ document.addEventListener('DOMContentLoaded', function() {
             // Remove shimmer from all buttons
             buttons.forEach(btn => btn.classList.remove('shimmer'));
             
-            // Add shimmer to current button
-            buttons[currentIndex].classList.add('shimmer');
+            // Add shimmer to current button with smoother timing
+            if (buttons[currentIndex]) {
+                buttons[currentIndex].classList.add('shimmer');
+            }
             
             // Move to next button
             currentIndex = (currentIndex + 1) % buttons.length;
             
-            // Schedule next shimmer (start next one 600ms before current finishes)
-            setTimeout(shimmerNext, 1000);
+            // Schedule next shimmer with improved timing
+            setTimeout(shimmerNext, 1200);
         }
 
         // Start the sequence
@@ -61,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Start shimmer sequence after a short delay
-    setTimeout(startShimmerSequence, 500);
+    setTimeout(startShimmerSequence, 800);
 
     // Dynamic slideshow functionality
     function initSlideshow() {
@@ -150,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Only start auto-advance if we have multiple slides
             if (slides.length > 1) {
-                setInterval(nextSlide, 3000);
+                setInterval(nextSlide, 4000); // Slower transition for better viewing
             }
 
             // Initialize first slide
