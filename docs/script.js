@@ -105,12 +105,23 @@ let currentSlide = 0;
 let slideshowInterval = null;
 let isGalleryLoaded = false;
 let currentGalleryPage = 0;
-const itemsPerPage = 8; // Reduced from 15 to 8 items per page
+
+// Responsive items per page - 4 for mobile, 8 for desktop
+function getItemsPerPage() {
+    return window.innerWidth <= 768 ? 4 : 8;
+}
 
 // DOM Content Loaded Event
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Modern Handy Bites website loaded!');
     initializeWebsite();
+});
+
+// Window resize handler for responsive gallery
+window.addEventListener('resize', function() {
+    if (isGalleryLoaded) {
+        initializePaginatedGallery();
+    }
 });
 
 // Initialize Website
@@ -140,7 +151,8 @@ function initializePaginatedGallery() {
         return;
     }
 
-    // Calculate total pages
+    // Calculate total pages with responsive items per page
+    const itemsPerPage = getItemsPerPage();
     const totalPages = Math.ceil(menuItems.length / itemsPerPage);
     document.getElementById('totalPages').textContent = totalPages;
     
@@ -213,6 +225,7 @@ function loadGalleryPage(pageIndex) {
     setTimeout(() => {
         galleryGrid.innerHTML = '';
         
+        const itemsPerPage = getItemsPerPage();
         const startIndex = pageIndex * itemsPerPage;
         const endIndex = Math.min(startIndex + itemsPerPage, menuItems.length);
         const pageItems = menuItems.slice(startIndex, endIndex);
@@ -281,6 +294,7 @@ function createMenuItemElement(imagePath, index) {
     img.src = imagePath;
     img.alt = `Menu Item ${index + 1}`;
     img.loading = 'lazy';
+    img.decoding = 'async'; // Better mobile performance
     
     // Add error handling
     img.onerror = function() {
