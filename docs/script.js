@@ -78,11 +78,21 @@ class ModernHandyBites {
   }
 
   setupGalleryModal() {
-    // Gallery functionality moved to separate page
-    // Only maintain grid preview functionality
+    // Gallery preview click goes to gallery.html page
     const menuPreview = document.getElementById('menuPreview');
     if (menuPreview) {
-      // Grid preview click handler is already set via onclick in HTML
+      menuPreview.addEventListener('click', (e) => {
+        try {
+          console.log('Gallery preview clicked - navigating to gallery.html');
+          window.location.href = 'gallery.html';
+        } catch (error) {
+          console.error('Navigation error:', error);
+          window.open('gallery.html', '_blank');
+        }
+      });
+      
+      // Add visual feedback
+      menuPreview.style.cursor = 'pointer';
       console.log('Gallery preview configured - redirects to gallery.html');
     }
   }
@@ -440,39 +450,51 @@ class ModernHandyBites {
   }
 
   initGallery() {
-    const menuPreview = document.getElementById('menuPreview');
-    if (!menuPreview) return;
+    try {
+      const menuPreview = document.getElementById('menuPreview');
+      if (!menuPreview) {
+        console.warn('Menu preview element not found');
+        return;
+      }
 
-    // Use dedicated Instagram grid items (max 12 for 4x3 grid)
-    const gridItems = this.gridItems || this.getFallbackGridItems();
-    const limitedItems = gridItems.slice(0, 12); // Ensure exactly 12 items for 4x3 grid
-    
-    limitedItems.forEach((item, index) => {
-      const gridItem = document.createElement('div');
-      gridItem.className = 'instagram-grid-item';
+      // Clear any existing content first
+      menuPreview.innerHTML = '';
+
+      // Use dedicated Instagram grid items (max 12 for 4x3 grid)
+      const gridItems = this.gridItems || this.getFallbackGridItems();
+      const limitedItems = gridItems.slice(0, 12); // Ensure exactly 12 items for 4x3 grid
       
-      const img = document.createElement('img');
-      img.src = `assets/MenuItems/${item}`;
-      img.alt = `Menu preview ${index + 1}`;
-      img.loading = index < 4 ? 'eager' : 'lazy'; // Load first row eagerly
+      console.log(`Loading ${limitedItems.length} grid items`);
       
-      // Handle image load errors
-      img.onerror = () => {
-        console.warn(`Failed to load grid image: ${item}`);
-        img.src = 'assets/HBLogo.png';
-        img.alt = 'Menu item placeholder';
-      };
+      limitedItems.forEach((item, index) => {
+        try {
+          const gridItem = document.createElement('div');
+          gridItem.className = 'instagram-grid-item';
+          
+          const img = document.createElement('img');
+          img.src = `assets/MenuItems/${item}`;
+          img.alt = `Menu preview ${index + 1}`;
+          img.loading = index < 4 ? 'eager' : 'lazy'; // Load first row eagerly
+          
+          // Handle image load errors
+          img.onerror = () => {
+            console.warn(`Failed to load grid image: ${item}`);
+            img.src = 'assets/HBLogo.png';
+            img.alt = 'Menu item placeholder';
+          };
+          
+          gridItem.appendChild(img);
+          menuPreview.appendChild(gridItem);
+        } catch (error) {
+          console.error(`Error creating grid item ${index}:`, error);
+        }
+      });
       
-      gridItem.appendChild(img);
-      menuPreview.appendChild(gridItem);
-    });
+      console.log('Gallery grid initialization completed');
+    } catch (error) {
+      console.error('Error initializing gallery:', error);
+    }
   }
-
-
-
-
-
-
 
   nextHeroBg() {
     const slides = document.querySelectorAll('.hero-bg-slide');
