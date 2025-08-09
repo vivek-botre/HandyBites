@@ -2,209 +2,233 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Handy Bites Café - Premium coffee, delicious bites, and good times. Order now on Zomato & Swiggy!">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Handy Bites Café - Modern café experience with delicious bites and premium coffee">
     <meta name="theme-color" content="#8B4513">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <title>Handy Bites Café - Sips, Bites and Good Times</title>
+    <title>Handy Bites Café - Modern Experience</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="assets/HBLogo.png">
-    <link rel="apple-touch-icon" href="assets/HBLogo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-background"></div>
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="assets/HBLogo.png" alt="Handy Bites" class="nav-logo-img">
+                <span class="nav-brand">Handy Bites</span>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="menu-items">
+                <a href="#hero" class="menu-item">Home</a>
+                <a href="#menu" class="menu-item">Menu</a>
+                <a href="#gallery" class="menu-item">Gallery</a>
+                <a href="#contact" class="menu-item">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Frosted Glass -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-slideshow" id="heroBgSlideshow">
+            <!-- Background images will be loaded here -->
+        </div>
         <div class="hero-overlay"></div>
         
         <div class="hero-content">
-            <div class="brand-section">
-                <div class="logo-container">
-                    <img src="assets/HBLogo.png" alt="Handy Bites Logo" class="brand-logo">
-                </div>
-                <h1 class="brand-title">Handy Bites Café</h1>
-                <p class="brand-tagline">Sips, Bites and Good Times</p>
-                <div class="veg-indicator">
-                    <img src="assets/pure-veg.svg" alt="Pure Veg" class="veg-icon">
-                    <span class="veg-text">Pure Veg</span>
-                </div>
-            </div>
-            
-            <div class="action-section">
-                <div class="visit-us-container">
-                    <a href="https://maps.app.goo.gl/Cv2JzQRnhbSbbvqH8" target="_blank" class="order-btn visit-us">
-                        <img src="assets/location-icon.svg" alt="Visit Us" class="btn-logo">
-                        <span>Visit Us</span>
-                    </a>
-                </div>
-                <div class="order-buttons">
-                    <a href="https://link.zomato.com/xqzv/rshare?id=834581783056348b" target="_blank" class="order-btn zomato">
-                        <img src="assets/zomato.svg" alt="Zomato" class="btn-logo">
-                        <span>Order on Zomato</span>
-                    </a>
-                    <a href="https://www.swiggy.com/direct/brand/562798?source=swiggy-direct&subSource=generic" target="_blank" class="order-btn swiggy">
-                        <img src="assets/swiggy.svg" alt="Swiggy" class="btn-logo">
-                        <span>Order on Swiggy</span>
-                    </a>
+            <div class="glass-card hero-card">
+                <div class="brand-info">
+                    <div class="logo-container">
+                        <img src="assets/HBLogo.png" alt="Handy Bites Logo" class="brand-logo">
+                    </div>
+                    <h1 class="brand-title">Handy Bites Café</h1>
+                    <p class="brand-tagline">Sips, Bites and Good Times</p>
+                    <div class="veg-badge">
+                        <img src="assets/pure-veg.svg" alt="Pure Veg" class="veg-icon">
+                        <span>100% Pure Vegetarian</span>
+                    </div>
                 </div>
                 
-                <div class="social-section">
-                    <p class="social-text">Connect with us</p>
-                    <div class="social-buttons">
-                        <a href="tel:08329451530" class="social-btn call">
-                            <img src="assets/call-contact.svg" alt="Call" class="social-icon">
-                            <span>Call Now</span>
+                <div class="cta-section">
+                    <div class="primary-actions">
+                        <a href="https://link.zomato.com/xqzv/rshare?id=834581783056348b" target="_blank" class="cta-btn primary">
+                            <img src="assets/zomato.svg" alt="Zomato">
+                            <span>Order on Zomato</span>
                         </a>
-                        <a href="https://wa.me/918329451530" target="_blank" class="social-btn whatsapp">
-                            <img src="assets/whatsapp-icon-logo.svg" alt="WhatsApp" class="social-icon">
-                            <span>WhatsApp</span>
+                        <a href="https://www.swiggy.com/direct/brand/562798?source=swiggy-direct&subSource=generic" target="_blank" class="cta-btn primary">
+                            <img src="assets/swiggy.svg" alt="Swiggy">
+                            <span>Order on Swiggy</span>
                         </a>
-                        <a href="https://www.instagram.com/handybites.in" target="_blank" class="social-btn instagram">
-                            <img src="assets/instagram.svg" alt="Instagram" class="social-icon">
-                            <span>@handybites.in</span>
+                    </div>
+                    
+                    <div class="secondary-actions">
+                        <a href="#contact" class="cta-btn secondary">
+                            <img src="assets/location-icon.svg" alt="Visit Us">
+                            <span>Visit Us</span>
                         </a>
-                        <a href="https://share.google/IF0nR9hM9X5G4NKOo" target="_blank" class="social-btn google">
-                            <img src="assets/google.svg" alt="Google" class="social-icon">
-                            <span>Find us on Google</span>
+                        <a href="https://www.instagram.com/handybites.in" target="_blank" class="cta-btn secondary">
+                            <img src="assets/instagram.svg" alt="Instagram">
+                            <span>Instagram</span>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
         
-        <div class="scroll-indicator" id="scrollIndicator">
-            <div class="scroll-arrow"></div>
+        <div class="scroll-hint">
+            <div class="scroll-indicator"></div>
             <span>Explore More</span>
         </div>
     </section>
 
-    <!-- Featured Slideshow Section -->
-    <section class="featured-section">
-        <div class="featured-container">
-            <div class="section-header">
-                <h2 class="section-title">Featured Delights</h2>
-                <p class="section-subtitle">Handpicked favorites from our menu</p>
-            </div>
+    <!-- Featured Menu Slideshow -->
+    <section class="featured-menu" id="menu">
+        <div class="container">
+            <h2 class="featured-title">Featured Delights</h2>
             
-            <div class="slideshow-container">
-                <div class="slideshow" id="featuredSlideshow">
-                    <!-- Slides will be dynamically generated -->
+            <div class="slideshow-wrapper">
+                <div class="menu-slideshow" id="menuSlideshow">
+                    <!-- Menu slides will be loaded here -->
                 </div>
-                
                 <div class="slideshow-controls">
-                    <button class="nav-btn prev-btn" aria-label="Previous slide">
-                        <span class="nav-arrow">‹</span>
+                    <button class="slide-btn prev" id="prevSlide" aria-label="Previous">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                     </button>
-                    <button class="nav-btn next-btn" aria-label="Next slide">
-                        <span class="nav-arrow">›</span>
+                    <button class="slide-btn next" id="nextSlide" aria-label="Next">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                     </button>
+                </div>
+                <div class="slide-indicators" id="slideIndicators">
+                    <!-- Indicators will be generated dynamically -->
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Menu Gallery Section -->
-    <section class="gallery-section">
-        <div class="gallery-container">
-            <div class="gallery-header">
-                <h2 class="gallery-title">Explore Our Delicious Menu</h2>
-                <div class="menu-veg-indicator">
-                    <img src="assets/pure-veg.svg" alt="Pure Veg" class="menu-veg-icon">
-                    <span class="menu-veg-text">100% Pure Vegetarian</span>
-                </div>
-                <p class="gallery-subtitle">Discover all our delicious offerings</p>
+    <!-- Menu Gallery Preview -->
+    <section class="menu-gallery" id="gallery">
+        <div class="container">
+            <div class="glass-card section-header">
+                <h2 class="section-title">Menu Gallery</h2>
+                <p class="section-subtitle">Tap to explore our delicious offerings</p>
             </div>
             
-            <div class="gallery-grid" id="menuGallery">
-                <!-- Menu items will be dynamically loaded here -->
+            <!-- Gallery link redirects to separate page -->
+            <div class="instagram-grid" id="menuPreview" onclick="window.location.href='gallery.html'">
+                <!-- 4x3 grid items will be loaded here -->
             </div>
-            
-            <div class="gallery-controls">
-                <div class="pagination-container">
-                    <button class="gallery-nav-btn gallery-prev-btn" aria-label="Previous page">‹</button>
-                    <div class="modern-pagination" id="modernPagination">
-                        <!-- Pagination buttons will be dynamically generated -->
+    </div>
+    </section>
+
+    <!-- Café Ambiance Section -->
+    <section class="ambiance-section">
+        <div class="container">
+            <div class="ambiance-content">
+                <div class="ambiance-info">
+                    <div class="glass-card">
+                        <h2 class="ambiance-title">Experience Our Cozy Ambiance</h2>
+                        <p class="ambiance-description">
+                            Step into our warm and inviting space, where every corner tells a story of comfort and amazing flavors. From delightful coffee dates to memorable gatherings with family and friends, Handy Bites Café is your perfect destination for cozy moments and incredible food.
+                        </p>
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <div class="feature-icon">☕</div>
+                                <span>Premium Drinks</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🥪</div>
+                                <span>Fresh Bites</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">📍</div>
+                                <span>Great Location</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">⭐</div>
+                                <span>Amazing Experience</span>
+                            </div>
+                        </div>
                     </div>
-                    <button class="gallery-nav-btn gallery-next-btn" aria-label="Next page">›</button>
                 </div>
                 
-                <div class="page-info">
-                    <span>Page <span id="currentPage">1</span> of <span id="totalPages">1</span></span>
+                <div class="cafe-slideshow-container">
+                    <div class="cafe-slideshow" id="cafeSlideshow">
+                        <!-- Café images will be loaded here -->
+                    </div>
+                    <div class="cafe-controls">
+                        <button class="cafe-btn prev" id="prevCafe" aria-label="Previous">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="cafe-btn next" id="nextCafe" aria-label="Next">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact-section" id="contact-section">
-        <div class="contact-container">
-            <h2 class="contact-title">Visit Us</h2>
-            <div class="contact-info">
-                <div class="contact-item with-separator">
-                    <h3>Location</h3>
-                    <p>Shop no 20-21, Onyx Business, Tilekar Nagar, Kondhwa Budruk, Pune, Maharashtra 411048</p>
-                    <a href="https://maps.app.goo.gl/Cv2JzQRnhbSbbvqH8" target="_blank" class="directions-link">📍 Get Directions</a>
-                </div>
-                <div class="contact-item with-separator">
-                    <h3>Phone</h3>
-                    <p>08329451530</p>
-                    <div class="contact-buttons">
-                        <a href="tel:08329451530" class="contact-btn call">
-                            <img src="assets/call-contact.svg" alt="Call" class="contact-icon">
-                            <span>Call Now</span>
-                        </a>
-                        <a href="https://wa.me/918329451530" target="_blank" class="contact-btn whatsapp">
-                            <img src="assets/whatsapp-icon-logo.svg" alt="WhatsApp" class="contact-icon">
-                            <span>WhatsApp</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Cafe Ambiance Section -->
-    <section class="ambiance">
-        <div class="ambiance-content">
-            <div class="ambiance-text">
-                <h2>Experience Our Cozy Ambiance</h2>
-                <p>Step into our warm and inviting space, where every corner tells a story of comfort and amazing flavors. From delightful coffee dates to memorable gatherings with family and friends, Handy Bites Café is your perfect destination for cozy moments and incredible food.</p>
-                <div class="ambiance-features">
-                    <div class="feature">
-                        <span class="feature-icon">☕</span>
-                        <span>Premium Drinks</span>
-                    </div>
-                    <div class="feature">
-                        <span class="feature-icon">🥪</span>
-                        <span>Fresh Bites</span>
-                    </div>
-                    <div class="feature">
-                        <span class="feature-icon">📍</span>
-                        <span>Great Location</span>
-                    </div>
-                    <div class="feature">
-                        <span class="feature-icon">⭐</span>
-                        <span>Amazing Experience</span>
-                    </div>
-                </div>
-            </div>
-            <div class="ambiance-image">
-                <div class="cafe-slideshow-container">
-                    <div class="cafe-slideshow" id="cafeSlideshow">
-                        <!-- Cafe slides will be dynamically generated -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="glass-card">
+                <h2 class="section-title">Visit Us Today</h2>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-info">
+                            <h3>Location</h3>
+                            <p>Shop no 20-21, Onyx Business, Tilekar Nagar, Kondhwa Budruk, Pune, Maharashtra 411048</p>
+                            <a href="https://maps.app.goo.gl/Cv2JzQRnhbSbbvqH8" target="_blank" class="contact-link">Get Directions</a>
+                        </div>
                     </div>
                     
-                    <div class="cafe-slideshow-controls">
-                        <button class="cafe-nav-btn cafe-prev-btn" aria-label="Previous cafe image">
-                            <span class="nav-arrow">‹</span>
-                        </button>
-                        <button class="cafe-nav-btn cafe-next-btn" aria-label="Next cafe image">
-                            <span class="nav-arrow">›</span>
-                        </button>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-info">
+                            <h3>Phone</h3>
+                            <p>+91 8329451530</p>
+                            <div class="contact-actions">
+                                <a href="tel:08329451530" class="contact-btn">
+                                    <img src="assets/call-contact.svg" alt="Call">
+                                    Call Now
+                                </a>
+                                <a href="https://wa.me/918329451530" target="_blank" class="contact-btn whatsapp">
+                                    <img src="assets/whatsapp-icon-logo.svg" alt="WhatsApp">
+                                    WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="social-section">
+                    <h3>Socials</h3>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/handybites.in" target="_blank" class="social-btn">
+                            <img src="assets/instagram.svg" alt="Instagram">
+                            <span>@handybites.in</span>
+                        </a>
+                        <a href="https://share.google/IF0nR9hM9X5G4NKOo" target="_blank" class="social-btn">
+                            <img src="assets/google-colored.svg" alt="Google">
+                            <span>Google</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -213,35 +237,29 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Handy Bites Café</h3>
-                    <p>Where every sip and bite creates good times</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Follow Us</h3>
-                    <div class="footer-social">
-                        <a href="https://www.instagram.com/handybites.in" target="_blank" class="footer-social-btn">
-                            <img src="assets/instagram.svg" alt="Instagram">
-                        </a>
-                        <a href="https://share.google/IF0nR9hM9X5G4NKOo" target="_blank" class="footer-social-btn">
-                            <img src="assets/google.svg" alt="Google">
-                        </a>
+        <div class="container">
+            <div class="glass-card footer-content">
+                <div class="footer-info">
+                    <div class="footer-brand">
+                        <img src="assets/HBLogo.png" alt="Handy Bites" class="footer-logo">
+                        <div>
+                            <h3>Handy Bites Café</h3>
+                            <p>Where every sip and bite creates memories</p>
+                        </div>
+                    </div>
+                    <div class="footer-links">
+                        <a href="#hero">Home</a>
+                        <a href="#menu">Menu</a>
+                        <a href="#contact">Contact</a>
                     </div>
                 </div>
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <a href="#contact-section" class="footer-contact-link">Visit our location for the best café experience</a>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Handy Bites Café. All rights reserved.</p>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Handy Bites Café. All rights reserved.</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
-    <script src="protection.js"></script>
 </body>
 </html>

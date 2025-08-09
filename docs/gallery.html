@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Handy Bites Café - Complete Menu Gallery">
+    <meta name="theme-color" content="#8B4513">
+    <title>Menu Gallery - Handy Bites Café</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/HBLogo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="gallery-page">
+    <!-- Gallery Header -->
+    <header class="gallery-header">
+        <div class="container">
+            <div class="gallery-nav">
+                <a href="index.html" class="back-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Back to Home</span>
+                </a>
+                <h1 class="gallery-title">Feast Your Eyes, Then Your Taste Buds</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Gallery Grid -->
+    <main class="gallery-main">
+        <div class="container">
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- All menu items will be loaded here in 4-column grid -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Instagram-style Vertical View -->
+    <div class="instagram-view" id="instagramView">
+        <div class="instagram-backdrop" id="instagramBackdrop"></div>
+        <div class="instagram-content">
+            <div class="instagram-header">
+                <button class="instagram-back" id="instagramBack" aria-label="Back to gallery">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <span class="instagram-title">Menu Items</span>
+                <button class="instagram-close" id="instagramClose" aria-label="Close">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Vertical Scrollable Image List -->
+            <div class="instagram-scroll" id="instagramScroll">
+                <!-- All images will be loaded here vertically -->
+            </div>
+        </div>
+    </div>
+
+    <script src="gallery.js"></script>
+</body>
+</html>
